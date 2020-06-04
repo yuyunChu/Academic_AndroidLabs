@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">Android Labs</string>
+    <string name="app_name">Android Labs</string>
     <string name="header_text" translatable="false"> Look at my GUI </string>
     <string name="buttonClick_text" translatable="false">CLICK HERE</string>
     <string name="checkbox_text" translatable="false">Check this out!</string>

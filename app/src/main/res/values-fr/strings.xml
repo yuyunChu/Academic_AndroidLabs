@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name"> Laboratoire 1 </string>
-    <string name="hello_message"> Bonjour! </string>
-    <string name="ButtonText">Je suis un bouton</string>
+    <string name="app_name">Android Labs</string>
+    <string name="header_text" translatable="false"> Regardez mon interface graphique </string>
+    <string name="buttonClick_text" translatable="false">CLIQUEZ ICI</string>
+    <string name="checkbox_text" translatable="false">Regarde ça!</string>
+    <string name="switch_text" translatable="false" >Allumer / éteindre</string>
+    <string name="hint_text" translatable="false" >Écrivez ici</string>
+    <string name="toast_message" translatable="false" >Voici plus d\'informations</string>
+    <string name="snackbar_text_The_switch_is_now" translatable="false" >Le commutateur est maintenant</string>
+    <string name="snackbar_text_On" translatable="false" >SUR</string>
+    <string name="snackbar_text_Off" translatable="false" >DE</string>
+    <string name="snackbar_text_Undo" translatable="false" >ANNULER</string>
+
 </resources>

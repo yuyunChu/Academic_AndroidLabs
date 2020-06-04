@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name"> 演練 01 </string>
-    <string name="hello_message"> 世界你好! </string>
-    <string name="ButtonText">我是一個按鈕</string>
+    <string name="app_name">安卓實驗室</string>
+    <string name="header_text" translatable="false"> 看我的GUI </string>
+    <string name="buttonClick_text" translatable="false">點擊這裡</string>
+    <string name="checkbox_text" translatable="false">看一下這個！</string>
+    <string name="switch_text" translatable="false" >開啟/關閉</string>
+    <string name="hint_text" translatable="false" >提示: 在此輸入</string>
+    <string name="toast_message" translatable="false" >還有更多信息</string>
+    <string name="snackbar_text_The_switch_is_now" translatable="false" >現在開關是:</string>
+    <string name="snackbar_text_On" translatable="false" >開</string>
+    <string name="snackbar_text_Off" translatable="false" >關</string>
+    <string name="snackbar_text_Undo" translatable="false" >撤消</string>
+
 </resources>

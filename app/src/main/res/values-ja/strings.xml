@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">ローカリゼーション例</string>
-    <string name="hello_message">こんにちは世界</string>
-    <string name="ButtonText">私はボタンです</string>
+    <string name="app_name" translatable="false">ローカリゼーション例</string>
+    <string name="header_text" translatable="false"> 私のGUIを見て </string>
+    <string name="buttonClick_text" translatable="false">ここをクリック</string>
+    <string name="checkbox_text" translatable="false">これをチェック！</string>
+    <string name="switch_text" translatable="false" >スイッチのオン/オフ</string>
+    <string name="hint_text" translatable="false" >ここに入力</string>
+    <string name="toast_message" translatable="false" >詳細はこちら</string>
+    <string name="snackbar_text_The_switch_is_now" translatable="false" >スイッチは今です</string>
+    <string name="snackbar_text_On" translatable="false" >オン</string>
+    <string name="snackbar_text_Off" translatable="false" >オフ</string>
+    <string name="snackbar_text_Undo" translatable="false" >元に戻す</string>
+
 </resources>

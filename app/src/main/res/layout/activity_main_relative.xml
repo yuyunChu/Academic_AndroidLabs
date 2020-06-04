@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/headerID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:gravity="fill"
+        android:text="@string/header_text"
+        android:textSize="30sp" />
+
+
+    <Button
+        android:id="@+id/buttonClickID"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_below="@id/headerID"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="-4dp"
+        android:layout_toStartOf="@id/checkboxID"
+        android:text="@string/buttonClick_text" />
+
+    <CheckBox
+        android:id="@+id/checkboxID"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_below="@id/headerID"
+        android:layout_alignParentEnd="true"
+        android:text="@string/checkbox_text" />
+
+
+    <ImageButton
+        android:id="@+id/imageButtonID"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_below="@id/buttonClickID"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@id/switchID"
+        app:srcCompat="@drawable/flag"
+        tools:ignore="ContentDescription" />
+
+    <Switch
+        android:id="@+id/switchID"
+        android:layout_width="195dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/checkboxID"
+        android:layout_alignParentEnd="true"
+        android:text="@string/switch_text" />
+
+
+    <EditText
+        android:id="@+id/editTextTextPersonNameID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageButtonID"
+        android:layout_gravity="fill"
+        android:ems="10"
+        android:hint="@string/hint_text"
+        android:inputType="textPersonName"
+        android:maxLength="45"
+        android:singleLine="true"
+        tools:ignore="" />
+
+
+</RelativeLayout>
