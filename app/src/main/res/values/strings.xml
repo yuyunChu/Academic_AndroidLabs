@@ -11,5 +11,4 @@
     <string name="snackbar_text_On" translatable="false" >ON</string>
     <string name="snackbar_text_Off" translatable="false" >OFF</string>
     <string name="snackbar_text_Undo" translatable="false" >UNDO</string>
-
 </resources>
