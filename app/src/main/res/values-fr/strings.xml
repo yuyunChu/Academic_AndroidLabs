@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Android Labs</string>
-    <string name="header_text" translatable="false"> Regardez mon interface graphique </string>
-    <string name="buttonClick_text" translatable="false">CLIQUEZ ICI</string>
-    <string name="checkbox_text" translatable="false">Regarde ça!</string>
-    <string name="switch_text" translatable="false" >Allumer / éteindre</string>
-    <string name="hint_text" translatable="false" >Écrivez ici</string>
-    <string name="toast_message" translatable="false" >Voici plus d\'informations</string>
-    <string name="snackbar_text_The_switch_is_now" translatable="false" >Le commutateur est maintenant</string>
-    <string name="snackbar_text_On" translatable="false" >SUR</string>
-    <string name="snackbar_text_Off" translatable="false" >DE</string>
-    <string name="snackbar_text_Undo" translatable="false" >ANNULER</string>
+    <string name="app_name" translatable="false">Android Labs</string>
+    <string name="preference_file_key" translatable="false">Android_Lab_03</string>
+    <string name="TextViewEnterEmailID" translatable="false"> Entrez votre adresse email: </string>
+    <string name="EditHintEmail_text" translatable="false"> Saisissez votre e-mail ici </string>
+    <string name="TextViewEnterPwdID" translatable="false"> Tapez votre mot de passe: </string>
+    <string name="EditHintPwd_text" translatable="false"> ************ </string>
+    <string name="buttonLoginID" translatable="false">S\'IDENTIFIER</string>
+    <string name="yourProfile_label" translatable="false">Votre profil</string>
+    <string name="yourName_label" translatable="false">Votre nom:</string>
+    <string name="enterYourName_text" translatable="false">Entrez votre nom</string>
+    <string name="yourEmail_label" translatable="false">Votre email:</string>
+    <string name="enterYourEmail_text" translatable="false">Entrer votre Email</string>
+    <string name="yourPic_label" translatable="false">Ta photo:</string>
+    <string name="clickMe_label" translatable="false">Cliquez sur le bouton ci-dessus pour prendre une photo</string>
 
 </resources>

@@ -16,10 +16,24 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/YourProfileID"
+            android:id="@+id/yourProfileID"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/TextViewEnterEmailID"
+            android:text="@string/yourProfile_label"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/YourNameID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/yourName_label"
             android:textSize="18sp" />
     </LinearLayout>
 
@@ -34,7 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:hint="@string/EditHintEmail_text"
+            android:hint="@string/enterYourName_text"
             android:inputType="textEmailAddress" />
     </LinearLayout>
 
@@ -44,16 +58,16 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/yourEmailID"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/TextViewEnterPwdID"
+            android:text="@string/yourEmail_label"
             android:textSize="18sp" />
 
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/yourEmailID"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -65,8 +79,21 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:hint="@string/EditHintPwd_text"
-            android:inputType="textPassword" />
+            android:inputType="textEmailAddress" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/yourPic_label"
+            android:textSize="18sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -74,25 +101,26 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/buttonLoginID"
-            android:layout_width="match_parent"
+        <ImageButton
+            android:id="@+id/imageButtonID"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="fill"
-            android:text="@string/buttonLoginID"
-            android:textAlignment="center"
-            tools:ignore="RtlCompat" />
-
+            android:src="@android:drawable/picture_frame" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"/>
+        <TextView
+            android:id="@+id/clickMeID"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/clickMe_label"
+            android:textSize="16sp" />
+    </LinearLayout>
 
 </LinearLayout>

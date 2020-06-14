@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Android Labs</string>
-    <string name="header_text" translatable="false"> Look at my GUI </string>
-    <string name="buttonClick_text" translatable="false">CLICK HERE</string>
-    <string name="checkbox_text" translatable="false">Check this out!</string>
-    <string name="switch_text" translatable="false" >Switch on / off</string>
-    <string name="hint_text" translatable="false" >Type here</string>
-    <string name="toast_message" translatable="false" >Here is more information</string>
-    <string name="snackbar_text_The_switch_is_now" translatable="false" >The switch is now</string>
-    <string name="snackbar_text_On" translatable="false" >ON</string>
-    <string name="snackbar_text_Off" translatable="false" >OFF</string>
-    <string name="snackbar_text_Undo" translatable="false" >UNDO</string>
+    <string name="app_name" translatable="false">Android Labs</string>
+    <string name="preference_file_key" translatable="false">Android_Lab_03</string>
+    <string name="TextViewEnterEmailID" translatable="false"> Enter your email address: </string>
+    <string name="EditHintEmail_text" translatable="false"> Type email here </string>
+    <string name="TextViewEnterPwdID" translatable="false"> Type your password: </string>
+    <string name="EditHintPwd_text" translatable="false"> ************ </string>
+    <string name="buttonLoginID" translatable="false">LOGIN</string>
+    <string name="yourProfile_label" translatable="false">Your profile</string>
+    <string name="yourName_label" translatable="false">Your name:</string>
+    <string name="enterYourName_text" translatable="false">Enter your name</string>
+    <string name="yourEmail_label" translatable="false">Your email:</string>
+    <string name="enterYourEmail_text" translatable="false">Enter your email</string>
+    <string name="yourPic_label" translatable="false">Your picture:</string>
+    <string name="clickMe_label" translatable="false">Click the button above to take a picture</string>
 
 </resources>

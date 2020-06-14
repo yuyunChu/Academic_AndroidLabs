@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">安卓实验室</string>
-    <string name="header_text" translatable="false"> 看我的GUI </string>
-    <string name="buttonClick_text" translatable="false">点击这里</string>
-    <string name="checkbox_text" translatable="false">看一下这个！</string>
-    <string name="switch_text" translatable="false" >开启/关闭</string>
-    <string name="hint_text" translatable="false" >提示: 在此输入</string>
-    <string name="toast_message" translatable="false" >还有更多信息</string>
-    <string name="snackbar_text_The_switch_is_now" translatable="false" >现在开关是:</string>
-    <string name="snackbar_text_On" translatable="false" >开</string>
-    <string name="snackbar_text_Off" translatable="false" >关</string>
-    <string name="snackbar_text_Undo" translatable="false" >撤消</string>
+    <string name="app_name" translatable="false">安卓实验室</string>
+    <string name="preference_file_key" translatable="false">安卓实验室03</string>
+    <string name="TextViewEnterEmailID" translatable="false"> 请输入您的电子邮件地址： </string>
+    <string name="EditHintEmail_text" translatable="false"> 在此处输入电子邮件 </string>
+    <string name="TextViewEnterPwdID" translatable="false"> 请输入密码： </string>
+    <string name="EditHintPwd_text" translatable="false"> ************ </string>
+    <string name="buttonLoginID" translatable="false">登录</string>
+    <string name="yourProfile_label" translatable="false">您的个人资料</string>
+    <string name="yourName_label" translatable="false">你的名字：</string>
+    <string name="enterYourName_text" translatable="false">请输入你的名字</string>
+    <string name="yourEmail_label" translatable="false">请输入你的名字</string>
+    <string name="enterYourEmail_text" translatable="false">在此处输入你的电子邮箱</string>
+    <string name="yourPic_label" translatable="false">你的图片：</string>
+    <string name="clickMe_label" translatable="false">点击上方的按钮拍照</string>
 </resources>
