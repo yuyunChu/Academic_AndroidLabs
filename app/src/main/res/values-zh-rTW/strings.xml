@@ -15,4 +15,10 @@
     <string name="yourPic_label" translatable="false">你的圖片：</string>
     <string name="clickMe_label" translatable="false">點擊上方的按鈕拍照</string>
 
+
+    <string name="goToChatID" translatable="false">進入聊天室</string>
+    <string name="sendButtonID" translatable="false">發送</string>
+    <string name="receiveButtonID" translatable="false">接收</string>
+    <string name="delete" translatable="false"> 刪除</string>
+    <string name="typeHereHint_text" translatable="false">在此處輸入訊息</string>
 </resources>

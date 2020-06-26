@@ -7,28 +7,30 @@
     tools:context=".ChatRoomActivity">
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/LinearLayout01"
         android:layout_height="match_parent"
+        android:layout_width="match_parent"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="678dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
             android:orientation="horizontal">
-
             <ListView
-                android:layout_width="match_parent"
-                android:layout_height="651dp"
-                android:id="@+id/listItemID">
-
+                android:id="@+id/listItemID"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent">
             </ListView>
-
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:background="#3F51B5"
+            android:orientation="horizontal">
+
 
             <Button
                 android:id="@+id/sendButtonID"
@@ -42,9 +44,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="#FBFCFF"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:hint="@string/typeHereHint_text" />
+                android:hint="@string/typeHereHint_text"
+                android:inputType="textPersonName" />
 
             <Button
                 android:id="@+id/receiveButtonID"
@@ -53,8 +56,8 @@
                 android:layout_weight="1"
                 android:text="@string/receiveButtonID" />
 
-        </LinearLayout>
 
+        </LinearLayout>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

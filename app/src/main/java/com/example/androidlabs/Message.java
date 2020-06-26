@@ -27,4 +27,6 @@ public class Message {
     public void setSend(boolean send) {
         isSend = send;
     }
+
 }
+

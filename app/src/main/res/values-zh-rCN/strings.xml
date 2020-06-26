@@ -14,4 +14,9 @@
     <string name="enterYourEmail_text" translatable="false">在此处输入你的电子邮箱</string>
     <string name="yourPic_label" translatable="false">你的图片：</string>
     <string name="clickMe_label" translatable="false">点击上方的按钮拍照</string>
+
+    <string name="goToChatID" translatable="false">进入聊天室</string>
+    <string name="sendButtonID" translatable="false">传送</string>
+    <string name="receiveButtonID" translatable="false">接收</string>
+    <string name="typeHereHint_text" translatable="false">在此处输入讯息</string>
 </resources>
