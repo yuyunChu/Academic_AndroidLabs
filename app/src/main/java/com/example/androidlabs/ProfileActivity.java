@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
@@ -17,7 +18,7 @@ public class ProfileActivity extends AppCompatActivity {
     static final int REQUEST_IMAGE_CAPTURE = 1;
     public static final String ACTIVITY_NAME = "PROFILE_ACTIVITY";
 
-    ImageButton mImageButton;
+    ImageButton activateChatBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,10 +34,18 @@ public class ProfileActivity extends AppCompatActivity {
         emailEditText.setText(userEmail);
 
      //   Log.d(TAG, userEmail);
-        mImageButton = findViewById(R.id.imageButtonID);
+        activateChatBtn = findViewById(R.id.imageButtonID);
 
-        mImageButton.setOnClickListener(v -> {
+        activateChatBtn.setOnClickListener(v -> {
             dispatchTakePictureIntent();
+        });
+
+        ImageButton activateChatBtn = (ImageButton) findViewById(R.id.activateChatBtnID);
+        activateChatBtn.setOnClickListener(c -> {
+            Intent chatRoomPage = new Intent(ProfileActivity.this, ChatRoomActivity.class);
+
+            startActivityForResult(chatRoomPage, 345);
+
         });
     }
 
@@ -84,7 +93,7 @@ public class ProfileActivity extends AppCompatActivity {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
-            mImageButton.setImageBitmap(imageBitmap);
+            activateChatBtn.setImageBitmap(imageBitmap);
         }
     }
 
