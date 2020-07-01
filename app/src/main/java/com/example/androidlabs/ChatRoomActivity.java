@@ -13,6 +13,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,7 +45,7 @@ public class ChatRoomActivity extends AppCompatActivity {
     SQLiteDatabase db;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_room);
@@ -84,14 +85,8 @@ public class ChatRoomActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         db.delete(ChatDB.TABLE_MESSAGES, ChatDB.COL_ID + "= ?", new String[]{Long.toString(chatAdapter.getItemId(position))});
-                        messages.remove(listView.getItemAtPosition(position));
+                        messages.remove(position);
                         chatAdapter.notifyDataSetChanged();
-
-                        Log.d("MESSAGE", "Count " + chatAdapter.getCount() );
-
-                        for(int i = 0; i < chatAdapter.getCount(); i++){
-                            Log.d("MESSAGE", "Message " + i + " : " + chatAdapter.getItem(i).getMessage() );
-                        }
                     }
                 });
                 builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
@@ -126,6 +121,7 @@ public class ChatRoomActivity extends AppCompatActivity {
         //query all the results from the database:
 
         Cursor results = db.query(false, ChatDB.TABLE_MESSAGES, columns, null, null, null, null, null, null);
+        printCursor(results, db.getVersion());
 
         //Now the results object has rows of results that match the query.
         //find the column indices:
@@ -177,12 +173,29 @@ public class ChatRoomActivity extends AppCompatActivity {
         Message message = new Message(newID, messageText, isSend);
         messages.add(message);
         chatAdapter.notifyDataSetChanged();
+    }
 
-        Log.d("MESSAGE", "Count " + chatAdapter.getCount() );
-
-        for(int i = 0; i < chatAdapter.getCount(); i++){
-            Log.d("MESSAGE", "Message " + i + " : " + chatAdapter.getItem(i).getMessage() );
+    public void printCursor(Cursor c, int version){
+//        The database version number, use db.getVersion() for the version number.
+        Log.d("CURSOR", "Version: " + version);
+//        The number of columns in the cursor
+        Log.d("CURSOR", "Number of columns: " + c.getColumnCount());
+//        The name of the columns in the cursor
+        Log.d("CURSOR", "Column names: " + TextUtils.join(", ", c.getColumnNames()));
+//        The number of rows in the cursor
+        Log.d("CURSOR", "Number of rows: " + c.getCount());
+//        Print out each row of results in the cursor.
+        int i = 1;
+        String output[];
+        while(c.moveToNext()) {
+            output = new String[c.getColumnCount()];
+            for(int j = 0; j < c.getColumnCount(); j++) {
+                output[j] = c.getString(j);
+            }
+            Log.d("CURSOR", "Row " + (i++) + ": " + TextUtils.join(", ", output));
         }
+
+        c.moveToFirst();
     }
 
     @Override
