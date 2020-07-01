@@ -1,12 +1,14 @@
 package com.example.androidlabs;
 
 public class Message {
-    public String message;
-    public boolean isSend;
+    private String message;
+    private boolean isSend;
+    private long id;
 
-    public Message(String message, boolean isSend) {
+    public Message(long id, String message, boolean isSend) {
         this.message = message;
         this.isSend = isSend;
+        this.id = id;
     }
 
     public Message() {
@@ -26,6 +28,14 @@ public class Message {
 
     public void setSend(boolean send) {
         isSend = send;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
 }

@@ -4,19 +4,23 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -26,15 +30,18 @@ public class ChatRoomActivity extends AppCompatActivity {
 
     ListView listView;
     EditText editText;
-    ArrayList<Message> messages = new ArrayList<>();
     Button sendBtn;
     Button receiveBtn;
+
+    ArrayList<Message> messages = new ArrayList<>();
 
     public static final String ACTIVITY_NAME = "CHAT_ROOM_ACTIVITY";
 
     Context context = this;
 
     ChatAdapter chatAdapter;
+
+    SQLiteDatabase db;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -62,15 +69,126 @@ public class ChatRoomActivity extends AppCompatActivity {
             buttonOnClick(false);
         });
 
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Message targetItem = chatAdapter.getItem(position);
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setCancelable(true);
+                builder.setTitle("Do you want to delete this?");
+                builder.setMessage("The selected row is: " + position + "\n" + "The database id is: " + chatAdapter.getItemId(position));
+
+                builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        db.delete(ChatDB.TABLE_MESSAGES, ChatDB.COL_ID + "= ?", new String[]{Long.toString(chatAdapter.getItemId(position))});
+                        messages.remove(listView.getItemAtPosition(position));
+                        chatAdapter.notifyDataSetChanged();
+
+                        Log.d("MESSAGE", "Count " + chatAdapter.getCount() );
+
+                        for(int i = 0; i < chatAdapter.getCount(); i++){
+                            Log.d("MESSAGE", "Message " + i + " : " + chatAdapter.getItem(i).getMessage() );
+                        }
+                    }
+                });
+                builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //do nothing
+                    }
+                });
+
+                AlertDialog dialog = builder.create();
+                dialog.show();
+
+                return true;
+            }
+
+        });
+
+
+        loadDataFromDatabase();
+
     }
 
-    public void buttonOnClick(boolean send){
+    private void loadDataFromDatabase() {
+        //get a database connection:
+        ChatDB dbOpener = new ChatDB(this);
+
+        db = dbOpener.getWritableDatabase(); //This calls onCreate() if you've never built the table before, or onUpgrade if the version here is newer
+
+
+        // We want to get all of the columns. Look at MyOpener.java for the definitions:
+        String [] columns = {ChatDB.COL_ID, ChatDB.COL_MESSAGE, ChatDB.COL_SENT};
+        //query all the results from the database:
+
+        Cursor results = db.query(false, ChatDB.TABLE_MESSAGES, columns, null, null, null, null, null, null);
+
+        //Now the results object has rows of results that match the query.
+        //find the column indices:
+        int messsageColIndex = results.getColumnIndex(ChatDB.COL_MESSAGE);
+        int sentColIndex = results.getColumnIndex(ChatDB.COL_SENT);
+        int idColIndex = results.getColumnIndex(ChatDB.COL_ID);
+
+        //iterate over the results, return true if there is a next item:
+        while(results.moveToNext())
+        {
+            String messageText = results.getString(messsageColIndex);
+            Boolean isSend = (results.getInt(sentColIndex) == 1 ? true : false);
+            long id = results.getLong(idColIndex);
+
+            //add the new Contact to the array list:
+            messages.add(new Message(id, messageText, isSend));
+            chatAdapter.notifyDataSetChanged();
+        }
+
+        results.close();
+
+        //At this point, the contactsList array has loaded every row from the cursor.
+    }
+
+    public void buttonOnClick(boolean isSend){
         String messageText = editText.getText().toString();
         if(!messageText.equals("")) {
-            Message message = new Message(messageText, send);
+            addMessage(messageText, isSend);
             editText.setText("");
-            chatAdapter.add(message);
+
         }
+    }
+
+    private void addMessage(String messageText, boolean isSend){
+        int sent = isSend ? 1 : 0;
+
+        //add to the database and get the new ID
+        ContentValues newRowValues = new ContentValues();
+
+        //Now provide a value for every database column defined in MyOpener.java:
+        //put string name in the NAME column:
+        newRowValues.put(ChatDB.COL_MESSAGE, messageText);
+        //put string email in the EMAIL column:
+        newRowValues.put(ChatDB.COL_SENT, sent);
+
+        //Now insert in the database:
+        long newID = db.insert(ChatDB.TABLE_MESSAGES, null, newRowValues);
+
+        Message message = new Message(newID, messageText, isSend);
+        messages.add(message);
+        chatAdapter.notifyDataSetChanged();
+
+        Log.d("MESSAGE", "Count " + chatAdapter.getCount() );
+
+        for(int i = 0; i < chatAdapter.getCount(); i++){
+            Log.d("MESSAGE", "Message " + i + " : " + chatAdapter.getItem(i).getMessage() );
+        }
+    }
+
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        db.close();
     }
 
 }
