@@ -81,7 +81,7 @@ public class ChatRoomActivity extends AppCompatActivity {
                 builder.setTitle("Do you want to delete this?");
                 builder.setMessage("The selected row is: " + position + "\n" + "The database id is: " + chatAdapter.getItemId(position));
 
-                builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                builder.setPositiveButton(R.string.delete, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         db.delete(ChatDB.TABLE_MESSAGES, ChatDB.COL_ID + "= ?", new String[]{Long.toString(chatAdapter.getItemId(position))});
@@ -116,23 +116,24 @@ public class ChatRoomActivity extends AppCompatActivity {
         db = dbOpener.getWritableDatabase(); //This calls onCreate() if you've never built the table before, or onUpgrade if the version here is newer
 
 
-        // We want to get all of the columns. Look at MyOpener.java for the definitions:
+        // We want to get all of the columns. Look at ChatDB.java for the definitions:
         String [] columns = {ChatDB.COL_ID, ChatDB.COL_MESSAGE, ChatDB.COL_SENT};
         //query all the results from the database:
 
-        Cursor results = db.query(false, ChatDB.TABLE_MESSAGES, columns, null, null, null, null, null, null);
+        Cursor results = db.query(false, ChatDB.TABLE_MESSAGES, columns,
+                null, null, null, null, null, null);
         printCursor(results, db.getVersion());
 
         //Now the results object has rows of results that match the query.
         //find the column indices:
-        int messsageColIndex = results.getColumnIndex(ChatDB.COL_MESSAGE);
+        int messageColIndex = results.getColumnIndex(ChatDB.COL_MESSAGE);
         int sentColIndex = results.getColumnIndex(ChatDB.COL_SENT);
         int idColIndex = results.getColumnIndex(ChatDB.COL_ID);
 
         //iterate over the results, return true if there is a next item:
         while(results.moveToNext())
         {
-            String messageText = results.getString(messsageColIndex);
+            String messageText = results.getString(messageColIndex);
             Boolean isSend = (results.getInt(sentColIndex) == 1 ? true : false);
             long id = results.getLong(idColIndex);
 

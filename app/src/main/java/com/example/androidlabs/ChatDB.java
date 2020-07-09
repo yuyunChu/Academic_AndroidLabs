@@ -9,14 +9,14 @@ import java.util.ArrayList;
 
 class ChatDB extends SQLiteOpenHelper {
 
-    protected final static String DBNAME = "lab5_chat";
+    protected static final String DBNAME = "lab5_chat";
 
-    public final static String  TABLE_MESSAGES = "messages",
+    public static final String  TABLE_MESSAGES = "messages",
                                 COL_MESSAGE = "message",
                                 COL_SENT = "sent",
                                 COL_ID = "_id";
 
-    protected final static int VERSION_NUM = 1;
+    protected static final int VERSION_NUM = 1;
 
     //Constructor
     public ChatDB(Context ctx)

@@ -60,6 +60,8 @@ public class ChatAdapter extends BaseAdapter {
             messageView = R.layout.activity_main_receive;
 
         LayoutInflater inflater = ((Activity) mContext).getLayoutInflater();
+
+
         convertView = inflater.inflate(messageView, parent, false);
 
         // get the TextView and then set the text (item name) and tag (item ID) values
