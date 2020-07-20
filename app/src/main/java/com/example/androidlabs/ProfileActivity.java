@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -15,8 +16,8 @@ public class ProfileActivity extends AppCompatActivity {
 
 
     private static final String TAG = "myLog";
-    static final int REQUEST_IMAGE_CAPTURE = 1;
-    public static final String ACTIVITY_NAME = "PROFILE_ACTIVITY";
+    private static final int REQUEST_IMAGE_CAPTURE = 1;
+    private static final String ACTIVITY_NAME = "PROFILE_ACTIVITY";
 
     ImageButton activateChatBtn;
 
@@ -47,6 +48,17 @@ public class ProfileActivity extends AppCompatActivity {
             startActivityForResult(chatRoomPage, 345);
 
         });
+/**** https://stackoverflow.com/questions/24610527/how-do-i-get-a-button-to-open-another-activity
+      Hit the button to go to the WeatherForecast.class
+*****/
+        Button btn = (Button)findViewById(R.id.weatherBtnID);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ProfileActivity.this, WeatherForecast.class));
+            }
+        });
+
     }
 
 
