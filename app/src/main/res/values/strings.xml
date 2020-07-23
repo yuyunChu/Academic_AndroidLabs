@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name" translatable="false">Android Labs</string>
-    <string name="preference_file_key" translatable="false">Android_Lab_03</string>
+    <string name="preference_file_key" translatable="false">Android_Lab_06</string>
     <string name="TextViewEnterEmailID" translatable="false"> Enter your email address: </string>
     <string name="EditHintEmail_text" translatable="false"> Type email here </string>
     <string name="TextViewEnterPwdID" translatable="false"> Type your password: </string>
