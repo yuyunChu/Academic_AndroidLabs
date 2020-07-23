@@ -6,6 +6,10 @@
 
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop="27dp"
+    android:layout_marginBottom="27dp"
+    android:layout_marginLeft="48dp"
+    android:layout_marginRight="48dp"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -35,7 +39,8 @@
             android:layout_weight="1"
             android:ems="10"
             android:hint="@string/EditHintEmail_text"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"
+            android:nextFocusDown="@id/enterYourPwdID" />
     </LinearLayout>
 
     <LinearLayout
@@ -60,13 +65,15 @@
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/enterYourEmailID"
+            android:id="@+id/enterYourPwdID"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
             android:hint="@string/EditHintPwd_text"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:nextFocusUp="@id/enterYourNameID"
+            android:nextFocusDown="@id/buttonLoginID"/>
     </LinearLayout>
 
     <LinearLayout
@@ -82,7 +89,8 @@
             android:gravity="fill"
             android:text="@string/buttonLoginID"
             android:textAlignment="center"
-            tools:ignore="RtlCompat" />
+            tools:ignore="RtlCompat"
+            android:nextFocusUp="@id/enterYourPwdID" />
 
     </LinearLayout>
 
