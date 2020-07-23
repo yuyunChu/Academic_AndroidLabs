@@ -17,7 +17,7 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/imageViewID"
                 android:layout_width="200dp"
                 android:layout_height="200dp"
                 tools:srcCompat="@tools:sample/backgrounds/scenic" />
@@ -50,13 +50,15 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="20dp"
-                        android:text="Min:" />
+                        android:text="Min:"
+                        android:textSize="20sp" />
 
                     <TextView
                         android:id="@+id/textViewMaxTemp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Max:" />
+                        android:text="Max:"
+                        android:textSize="20sp" />
 
                 </LinearLayout>
 
@@ -66,11 +68,12 @@
                     android:orientation="horizontal"></LinearLayout>
 
                 <TextView
-                    android:id="@+id/textViewUV"
+                    android:id="@+id/textViewUVID"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="0dp"
-                    android:text="UV Rating:" />
+                    android:text="UV Rating:"
+                    android:textSize="24sp" />
 
             </LinearLayout>
 
