@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChatRoomActivity">
+
+    <RelativeLayout
+        android:id="@+id/LinearLayout01"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="match_parent"
+            android:gravity="left"
+            android:weightSum="1"
+            android:orientation="vertical">
+
+            <ListView
+                android:id="@+id/listItemID"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="top"
+                android:layout_weight="1">
+
+            </ListView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="#3F51B5"
+                android:gravity="bottom"
+                android:orientation="horizontal"
+                android:layout_weight="0">
+
+                <Button
+                    android:id="@+id/sendButtonID"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/sendButtonID"
+                    android:textSize="8sp" />
+
+                <EditText
+                    android:id="@+id/typeHereHint_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#FBFCFF"
+                    android:ems="10"
+                    android:hint="@string/typeHereHint_text"
+                    android:inputType="textPersonName"
+                    android:textColor="#6B007E"
+                    android:textColorHighlight="#673AB7"
+                    android:textColorLink="#673AB7"
+                    android:textCursorDrawable="?android:attr/textCursorDrawable"
+                    android:textSize="14dp" />
+
+                <Button
+                    android:id="@+id/receiveButtonID"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/receiveButtonID"
+                    android:textSize="8sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/frameLayoutID"
+            android:name="com.example.news.ArticleListFragment"
+            android:layout_marginLeft="300dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </FrameLayout>
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

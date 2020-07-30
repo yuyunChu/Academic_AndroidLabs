@@ -23,4 +23,11 @@
     <string name="delete" translatable="false">Delete</string>
     <string name="receiveButtonID" translatable="false">RECEIVE</string>
     <string name="typeHereHint_text" translatable="false">Type Here</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <!--    <string name="hello_blank_fragment">Hello blank fragment</string>-->
+    <string name="fragmentMessageHereTxt" translatable="false">Message Here</string>
+    <string name="fragmentIDTxt" translatable="false">ID = </string>
+    <string name="fragmentCheckedBoxTxt" translatable="false">is a Send Message</string>
+    <string name="fragmentHideBtn" translatable="false">HIDE</string>
+
 </resources>

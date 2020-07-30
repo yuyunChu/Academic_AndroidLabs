@@ -47,7 +47,8 @@
                 android:background="#FBFCFF"
                 android:ems="10"
                 android:hint="@string/typeHereHint_text"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:textColor="#673AB7" />
 
             <Button
                 android:id="@+id/receiveButtonID"

@@ -4,10 +4,13 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -20,6 +23,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -33,10 +37,17 @@ public class ChatRoomActivity extends AppCompatActivity {
     EditText editText;
     Button sendBtn;
     Button receiveBtn;
+    FrameLayout frameLayoutView;
+    Boolean isPhone;
 
     ArrayList<Message> messages = new ArrayList<>();
 
     public static final String ACTIVITY_NAME = "CHAT_ROOM_ACTIVITY";
+
+    private static final String MESSAGE = "message",
+                                IS_SEND = "isSend",
+                                ITEM_ID = "itemId",
+                                IS_PHONE = "isPhone";
 
     Context context = this;
 
@@ -56,6 +67,10 @@ public class ChatRoomActivity extends AppCompatActivity {
         editText = (EditText)findViewById(R.id.typeHereHint_text);
         sendBtn = (Button)findViewById(R.id.sendButtonID);
         receiveBtn = (Button)findViewById(R.id.receiveButtonID);
+//      https://stackoverflow.com/questions/5832368/tablet-or-phone-android
+
+        frameLayoutView = (FrameLayout)findViewById(R.id.frameLayoutID);
+        isPhone = frameLayoutView == null;
 
         chatAdapter = new ChatAdapter(context, messages);
 
@@ -104,9 +119,38 @@ public class ChatRoomActivity extends AppCompatActivity {
 
         });
 
+        listView.setOnItemClickListener( (list, view, position, id) -> {
+            replace(position);
+        } );
 
         loadDataFromDatabase();
 
+    }
+
+    private void replace(int position) {
+
+        Message target = messages.get(position);
+
+        Bundle dataToPass = new Bundle();
+        dataToPass.putString(MESSAGE, target.getMessage());
+        dataToPass.putBoolean(IS_SEND, target.isSend());
+        dataToPass.putLong(ITEM_ID, target.getId());
+        dataToPass.putBoolean(IS_PHONE, isPhone);
+
+        if(!isPhone){
+            Log.d("FRAG", "Load a fragment");
+            DetailsFragment dFragment = new DetailsFragment(); //add a DetailFragment
+            dFragment.setArguments(dataToPass); //pass it a bundle for information
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.frameLayoutID, dFragment) //Add the fragment in FrameLayout
+                    .commit();
+
+        }else{
+            Intent nextActivity = new Intent(ChatRoomActivity.this, EmptyActivity.class);
+            nextActivity.putExtras(dataToPass); //send data to next activity
+            startActivity(nextActivity); //make the transition
+        };
     }
 
     private void loadDataFromDatabase() {

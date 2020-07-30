@@ -6,9 +6,8 @@
         android:name="android.hardware.camera"
         android:required="true" />
 
-    <uses-permission android:name="android.permission.INTERNET" />
-<!--    Add Watch Feature to get more screen space on your watch app-->
-    <uses-feature android:name="android.hardware.type.watch"/>
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- Add Watch Feature to get more screen space on your watch app -->
+    <uses-feature android:name="android.hardware.type.watch" />
 
     <application
         android:allowBackup="true"
@@ -16,11 +15,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-
-    android:theme="@style/AppTheme">
-<!--        Show a weather screen directly-->
-        <activity android:name=".WeatherForecast">
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".EmptyActivity"></activity>
+        <!-- Show a weather screen directly -->
+        <activity android:name=".ChatRoomActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
